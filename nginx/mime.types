@@ -60,7 +60,7 @@ types {
   application/octet-stream              iso img;
   application/octet-stream              msi msp msm;
   application/octet-stream              safariextz;
-   
+
   # Audio
   audio/midi                            mid midi kar;
   audio/mpeg                            mp3;
@@ -84,9 +84,9 @@ types {
 
   # Webfonts
   application/vnd.ms-fontobject         eot;
+  application/font-woff                 woff;
   application/x-font-ttf                ttf ttc;
   application/x-font-opentype           otf;
-  application/x-font-woff               woff;
 
   # Microsoft Office
   application/msword                                                         doc;

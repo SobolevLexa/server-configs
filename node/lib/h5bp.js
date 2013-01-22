@@ -54,7 +54,7 @@
         'ttf': 'application/x-font-ttf',
         'ttc': 'application/x-font-ttf',
         'otf': 'font/opentype',
-        'woff': 'application/x-font-woff',
+        'woff': 'application/font-woff',
         'webp': 'image/webp',
         'appcache': 'text/cache-manifest',
         'manifest': 'text/cache-manifest',
@@ -216,10 +216,10 @@
                             }
                         }
                         if (!method) { return; }
-                    
+
                         // default request filter
                         if (!filter(req, res)) return;
-                    
+
                         // head
                         if ('HEAD' == req.method) return;
 
@@ -238,17 +238,17 @@
 
                         res.on('header', function(){
                             var encoding = res.getHeader('Content-Encoding') || 'identity';
-                    
+
                             // already encoded
-                            if ('identity' != encoding) return; 
-                    
+                            if ('identity' != encoding) return;
+
                             // compression stream
                             stream = methods[method](options);
-                    
+
                             // header fields
                             res.setHeader('Content-Encoding', method);
                             res.removeHeader('Content-Length');
-                    
+
                             // compression
                             stream.on('data', function(chunk){
                                 write.call(res, chunk);
